@@ -1,0 +1,23 @@
+﻿@model Good
+
+<div class="col-sm-4 col-lg-4 col-md-4" >
+    <div class="thumbnail" style =" width: 300px;height:590px;">
+        <img src="@Model.ImageThumbnailUrl" alt="">
+        <div class="caption"style =" width: 250px;position: absolute;height:200px;bottom: 110px">
+            <h3 class="pull-right">@Model.Price.ToString("c")</h3>
+            <h3>
+                <a asp-controller="Good" asp-action="Details" asp-route-id="@Model.GoodId">@Model.Name</a>
+            </h3>
+            <p>@Model.VendorCode</p>
+        </div>
+
+        <div class="addToCart" style=" position: absolute; height: 40px; bottom: 35px">
+            <p class="button">
+                <a class="btn btn-primary"
+                   asp-controller="ShoppingCart"
+                   asp-action="AddToShoppingCart"
+                   asp-route-goodId="@Model.GoodId">Add to cart</a>
+            </p>
+        </div>
+    </div>
+</div>
